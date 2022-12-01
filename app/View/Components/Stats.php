@@ -9,9 +9,24 @@ use Illuminate\View\Component;
 
 class Stats extends Component
 {
+    /**
+     * @var int Count of total books in the database.
+     */
     public $booksCount;
+
+    /**
+     * @var int Count of total games in the database.
+     */
     public $gamesCount;
+
+    /**
+     * @var int Count of total movies in the database.
+     */
     public $moviesCount;
+
+    /**
+     * @var int Count of total books, games and movies in the database.
+     */
     public $totalCount;
     
     /**
