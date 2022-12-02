@@ -21,9 +21,8 @@
         <tbody class="table-group-divider">
         @foreach($movies as $movie)
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{$movie->name}}</td>
+                <td>{{$movie->genre}}</td>
                 <td class="text-center d-flex">
                     <a href="{{route('movies.edit', $movie)}}" class="btn btn-primary">
                         <i class="bi bi-pencil-fill"></i>
