@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Movie;
 
 class MovieController extends Controller
 {
@@ -13,7 +14,11 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        $movies = Movie::all();
+
+        return view('pages.movies.index', [
+            'movies' => $movies
+        ]);
     }
 
     /**
@@ -23,7 +28,9 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.movies.create', [
+
+        ]);
     }
 
     /**
@@ -34,7 +41,11 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $movie = new Movie();
+        $movie->id = $request->id;
+        $movie->name = $request->name;
+        $movie->genre = $request->genre;
+        $movie->save();
     }
 
     /**
@@ -56,7 +67,10 @@ class MovieController extends Controller
      */
     public function edit($id)
     {
-        //
+        $movie = Movie::findOrFail($id);
+        return view('pages.movies.edit', [
+            'movie' => $movie
+        ]);
     }
 
     /**
@@ -68,7 +82,15 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $movie = Movie::findOrFail($id);
+        $movie->id = $request->id;
+        $movie->name = $request->name;
+        $movie->genre = $request->genre;
+
+        $movie->save();
+
+        return redirect()
+            ->route('movies.index');
     }
 
     /**
@@ -79,6 +101,8 @@ class MovieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Movie::destroy($id);
+        return redirect()
+            ->route('movies.index');
     }
 }
