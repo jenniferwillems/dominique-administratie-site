@@ -1,6 +1,4 @@
-@extends('layouts.base')
-
-@section('content')
+<x-app-layout>
     <div class="pt-5 d-flex justify-content-between align-items-center">
         <h1>Boeken</h1>
         <div class="w-50 d-flex justify-content-around">
@@ -50,6 +48,4 @@
             } );
         });
     </script>
-@endsection
-
-
+</x-app-layout>

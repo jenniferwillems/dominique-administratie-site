@@ -1,6 +1,4 @@
-@extends('layouts.base')
-
-@section('content')
+<x-app-layout>
     <div class="pt-5">
         <h1>Boeken</h1>
         <h2>Voeg een boek toe</h2>
@@ -27,6 +25,4 @@
 
         </form>
     </div>
-
-@endsection
-
+</x-app-layout>
