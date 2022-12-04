@@ -21,9 +21,8 @@
         <tbody class="table-group-divider">
         @foreach($games as $game)
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{$game->name}}</td>
+                <td>{{$game->genre}}</td>
                 <td class="text-center d-flex">
                     <a href="{{route('games.edit', $game)}}" class="btn btn-primary">
                         <i class="bi bi-pencil-fill"></i>

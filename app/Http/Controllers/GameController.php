@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Game;
 
 class GameController extends Controller
 {
@@ -13,7 +14,11 @@ class GameController extends Controller
      */
     public function index()
     {
-        //
+        $games = Game::all();
+
+        return view('pages.games.index', [
+            'games' => $games
+        ]);
     }
 
     /**
@@ -23,7 +28,9 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.games.create', [
+
+        ]);
     }
 
     /**
@@ -34,7 +41,11 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $game = new Game();
+        $game->id = $request->id;
+        $game->name = $request->name;
+        $game->genre = $request->genre;
+        $game->save();
     }
 
     /**
@@ -56,7 +67,10 @@ class GameController extends Controller
      */
     public function edit($id)
     {
-        //
+        $game = Game::findOrFail($id);
+        return view('pages.games.edit', [
+            'game' => $game
+        ]);
     }
 
     /**
@@ -68,7 +82,15 @@ class GameController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $game = Game::findOrFail($id);
+        $game->id = $request->id;
+        $game->name = $request->name;
+        $game->genre = $request->genre;
+
+        $game->save();
+
+        return redirect()
+            ->route('games.index');
     }
 
     /**
@@ -79,6 +101,8 @@ class GameController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Game::destroy($id);
+        return redirect()
+            ->route('games.index');
     }
 }

@@ -22,9 +22,9 @@
         <tbody class="table-group-divider">
         @foreach($books as $book)
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{$book->title}}</td>
+                <td>{{$book->series}}</td>
+                <td>{{$book->code}}</td>
                 <td class="text-center d-flex">
                     <a href="{{route('books.edit', $book)}}" class="btn btn-primary">
                         <i class="bi bi-pencil-fill"></i>
