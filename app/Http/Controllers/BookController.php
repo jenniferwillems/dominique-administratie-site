@@ -47,6 +47,9 @@ class BookController extends Controller
         $book->series = $request->series;
         $book->code = $request->code;
         $book->save();
+
+        return redirect()
+            ->route('books.index');
     }
 
     /**
@@ -84,7 +87,6 @@ class BookController extends Controller
     public function update(Request $request, $id)
     {
         $book = Book::findOrFail($id);
-        $book->id = $request->id;
         $book->title = $request->title;
         $book->series = $request->series;
         $book->code = $request->code;
