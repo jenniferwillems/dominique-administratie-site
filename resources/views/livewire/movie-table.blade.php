@@ -22,7 +22,11 @@
 				<tr>
 					<td>{{$movie->id}}</td>
 					<td>{{$movie->title}}</td>
-					<td>{{$movie->genre}}</td>
+					<td>
+						@foreach($movie->genres as $genre)
+							{{$genre->name}}
+						@endforeach
+					</td>
 					<td>
 						<x-buttons.outline.dark href="{{route('movies.edit', $movie)}}" class="btn-sm">
 							<i class="bi bi-pencil"></i>
