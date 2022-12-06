@@ -1,8 +1,7 @@
 <x-app-layout>
-    <div class="pt-5">
+    <div class="pt-5 w-25 mx-auto">
         <h1>Boeken</h1>
         <h2>Voeg een boek toe</h2>
-        <form action=""></form>
         <form method="post" action="{{route('books.store')}}">
             @csrf
 
