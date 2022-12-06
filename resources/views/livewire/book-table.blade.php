@@ -23,7 +23,7 @@
 				<tr>
 					<td>{{$book->id}}</td>
 					<td>{{$book->title}}</td>
-					<td>{{$book->series}}</td>
+					<td>{{$book->series->name}}</td>
 					<td>{{$book->code}}</td>
 					<td>
 						<x-buttons.outline.dark href="{{route('books.edit', $book)}}" class="btn-sm">
