@@ -1,14 +1,13 @@
 <x-app-layout>
-    <div class="pt-5">
+    <div class="pt-5 w-25 mx-auto">
         <h1>Films</h1>
         <h2>Voeg een film toe</h2>
-        <form action=""></form>
         <form method="post" action="{{route('movies.store')}}">
             @csrf
 
             <div class="form-group mb-3">
-                <label for="name" class="form-label">Naam</label>
-                <input type="text" name="name" class="form-control" id="name">
+                <label for="title" class="form-label">Titel</label>
+                <input type="text" name="title" class="form-control" id="title">
             </div>
 
             <div class="form-group mb-3">

@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="pt-5">
+    <div class="pt-5 w-25 mx-auto">
         <h1>Films</h1>
         <h2>Film bewerken</h2>
 
@@ -8,8 +8,8 @@
             @method('PUT')
 
             <div class="form-group mb-3">
-                <label for="name" class="form-label">Naam</label>
-                <input type="text" name="name" class="form-control" id="name" value="{{$movies->name}}">
+                <label for="title" class="form-label">Titel</label>
+                <input type="text" name="title" class="form-control" id="title" value="{{$movie->title}}">
             </div>
 
             <div class="form-group mb-3">
@@ -31,7 +31,6 @@
 
                 <div class="mx-2">
                     <div class="buttons d-flex">
-                        <form action=""></form>
                         <form method="POST" action="{{route('movies.destroy', $movie)}}">
                             @csrf
                             @method('delete')
