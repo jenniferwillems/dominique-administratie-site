@@ -9,9 +9,14 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-
+        
+        <!-- Styles -->
+        @livewireStyles
+        
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        @livewireScripts
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
