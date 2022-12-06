@@ -22,7 +22,11 @@
 				<tr>
 					<td>{{$game->id}}</td>
 					<td>{{$game->title}}</td>
-					<td>{{$game->console}}</td>
+					<td>
+						@foreach($game->consoles as $console)
+							{{$console->name}}
+						@endforeach
+					</td>
 					<td>
 						<x-buttons.outline.dark href="{{route('games.edit', $game)}}" class="btn-sm">
 							<i class="bi bi-pencil"></i>
