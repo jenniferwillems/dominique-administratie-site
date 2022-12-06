@@ -83,7 +83,6 @@ class GameController extends Controller
     public function update(Request $request, $id)
     {
         $game = Game::findOrFail($id);
-        $game->id = $request->id;
         $game->name = $request->name;
         $game->genre = $request->genre;
 

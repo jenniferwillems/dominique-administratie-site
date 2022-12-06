@@ -83,7 +83,6 @@ class MovieController extends Controller
     public function update(Request $request, $id)
     {
         $movie = Movie::findOrFail($id);
-        $movie->id = $request->id;
         $movie->name = $request->name;
         $movie->genre = $request->genre;
 
