@@ -7,7 +7,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <img src="{{ asset('img/skeleton-dance.gif') }}" alt="Computer man" style="width:48px;height:48px;">
                     </a>
                 </div>
 
@@ -16,18 +16,15 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('books.index')" :active="request()->routeIs('books.index')">
                         {{ __('Boeken') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('games.index')" :active="request()->routeIs('games.index')">
                         {{ __('Games') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('movies.index')" :active="request()->routeIs('films.index')">
                         {{ __('Films') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                        {{__('Login')}}
-                    </x-nav-link>    
+                    </x-nav-link>   
                 </div>
             </div>
 
