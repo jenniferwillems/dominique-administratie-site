@@ -18,4 +18,19 @@ class Tag extends Model
     {
         return $this->belongsToMany(Movie::class);
     }
+    
+    public function scopeSeries()
+    {
+        return Tag::where('category_id', '=', 1)->get();
+    }
+
+    public function scopeConsoles()
+    {
+        return Tag::where('category_id', '=', 2)->get();
+    }
+
+    public function scopeGenres()
+    {
+        return Tag::where('category_id', '=', 3)->get();
+    }
 }
