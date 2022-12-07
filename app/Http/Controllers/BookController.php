@@ -28,9 +28,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('pages.books.create', [
-
-        ]);
+        return view('pages.books.create');
     }
 
     /**
@@ -44,7 +42,7 @@ class BookController extends Controller
         $book = new Book();
         $book->id = $request->id;
         $book->title = $request->title;
-        $book->series = $request->series;
+        $book->series_id = $request->series_id;
         $book->code = $request->code;
         $book->save();
 
