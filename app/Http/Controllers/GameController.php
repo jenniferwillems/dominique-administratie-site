@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Models\Game;
 
@@ -28,8 +29,11 @@ class GameController extends Controller
      */
     public function create()
     {
+        $tags = Tag::consolesTags(true);
+        
         return view('pages.games.create', [
 
+            'tags' => $tags
         ]);
     }
 

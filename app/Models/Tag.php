@@ -19,18 +19,37 @@ class Tag extends Model
         return $this->belongsToMany(Movie::class);
     }
     
-    public function scopeSeries()
+    public function scopeSeriesTags($query, $format = false)
     {
-        return Tag::where('category_id', '=', 1)->get();
+        $tags = Tag::where('category_id', '=', 1)->get();
+        if ($format) {
+            return $this->formatTags($tags);
+        }
+        return $tags;
     }
 
-    public function scopeConsoles()
+    public function scopeConsolesTags($query, $format = false)
     {
-        return Tag::where('category_id', '=', 2)->get();
+        $tags = Tag::where('category_id', '=', 2)->get();
+        if ($format) {
+            return $this->formatTags($tags);
+        }
+        return $tags;
     }
 
-    public function scopeGenres()
+    public function scopeGenresTags($query, $format = false)
     {
-        return Tag::where('category_id', '=', 3)->get();
+        $tags = Tag::where('category_id', '=', 3)->get();
+        if ($format) {
+            return $this->formatTags($tags);
+        }
+        return $tags;
+    }
+    
+    public function formatTags($tags)
+    {
+        return $tags->map(function ($tag) {
+            return ['id' => $tag->id, 'text' => $tag->name];
+        })->toArray();
     }
 }
