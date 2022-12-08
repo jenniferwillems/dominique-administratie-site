@@ -4,7 +4,9 @@
 		<div class="w-50 ps-5 d-flex justify-content-between">
 			<input type="text" class="form-control w-50 ms-5" placeholder="Zoeken..." wire:model="search">
 
-			<x-buttons.primary href="{{route('movies.create')}}">Nieuwe film</x-buttons.primary>
+            @if(Auth::user())
+			    <x-buttons.primary href="{{route('movies.create')}}">Nieuwe film</x-buttons.primary>
+            @endif
 		</div>
 	</div>
 
