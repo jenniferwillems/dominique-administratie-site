@@ -32,7 +32,6 @@ class GameController extends Controller
         $tags = Tag::consolesTags(true);
         
         return view('pages.games.create', [
-
             'tags' => $tags
         ]);
     }
@@ -46,10 +45,16 @@ class GameController extends Controller
     public function store(Request $request)
     {
         $game = new Game();
-        $game->id = $request->id;
-        $game->name = $request->name;
-        $game->genre = $request->genre;
+        $game->title = $request->title;
         $game->save();
+
+        $tagsToSync = collect($request->consoles);
+
+        $game->consoles()->sync($tagsToSync);
+        
+        return redirect()
+            ->route('games.index')
+            ->with('success', 'Game succesvol aangemaakt');
     }
 
     /**
