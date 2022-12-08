@@ -1,5 +1,6 @@
-<div>
-	<div class="pt-5 d-flex justify-content-between align-items-center">
+<div class="pt-5">
+	<x-flash-message/>
+	<div class="d-flex justify-content-between align-items-center">
 		<h1>Boeken</h1>
 		<div class="w-50 ps-5 d-flex justify-content-between">
 			<input type="text" class="form-control w-50 ms-5" placeholder="Zoeken..." wire:model="search">
