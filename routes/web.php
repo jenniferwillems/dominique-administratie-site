@@ -32,8 +32,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/books/create', [BookController::class, 'create'])->name('books.create');
-    Route::get('/games/create', [GameController::class, 'create'])->name('games.create');
-    Route::get('/movies/create', [MovieController::class, 'create'])->name('movies.create');
+    Route::get('/books/edit', [BookController::class, 'edit'])->name('books.edit');
+    Route::get('/movies/create', [BookController::class, 'create'])->name('movies.create');
+    Route::get('/movies/edit', [MovieController::class, 'edit'])->name('movies.edit');
+    Route::get('/games/create', [BookController::class, 'create'])->name('games.create');
+    Route::get('/games/edit', [GameController::class, 'edit'])->name('games.edit');
+
+
 });
 
 

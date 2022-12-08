@@ -27,6 +27,8 @@
 					<td>{{$book->title}}</td>
 					<td>{{$book->series->name ?? ''}}</td>
 					<td>{{$book->code}}</td>
+
+                    @if(Auth::user())
 					<td>
 						<x-buttons.outline.dark href="{{route('books.edit', $book)}}" class="btn-sm">
 							<i class="bi bi-pencil"></i>
@@ -39,6 +41,7 @@
 							<button class="btn btn-sm btn-outline-dark" type="submit"><i class="bi bi-trash3"></i></button>
 						</form>
 					</td>
+                        @endif
 				</tr>
 			@endforeach
 		</tbody>
