@@ -5,7 +5,9 @@
 		<div class="w-50 ps-5 d-flex justify-content-between">
 			<input type="text" class="form-control w-50 ms-5" placeholder="Zoeken..." wire:model="search">
 
-			<x-buttons.primary href="{{route('games.create')}}">Nieuwe game</x-buttons.primary>
+            @if(Auth::user())
+			    <x-buttons.primary href="{{route('games.create')}}">Nieuwe game</x-buttons.primary>
+            @endif
 		</div>
 	</div>
 
@@ -28,11 +30,21 @@
 							{{$console->name}}
 						@endforeach
 					</td>
+
+                    @if(Auth::user())
 					<td>
 						<x-buttons.outline.dark href="{{route('games.edit', $game)}}" class="btn-sm">
 							<i class="bi bi-pencil"></i>
 						</x-buttons.outline.dark>
 					</td>
+					<td>
+						<form method="POST" action="{{route('games.destroy', $game)}}">
+							@csrf
+							@method('delete')
+							<button class="btn btn-sm btn-outline-dark" type="submit"><i class="bi bi-trash3"></i></button>
+						</form>
+					</td>
+                    @endif
 				</tr>
 			@endforeach
 		</tbody>

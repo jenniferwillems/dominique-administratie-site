@@ -11,8 +11,8 @@
             </div>
 
             <div class="form-group mb-3">
-                <label for="series" class="form-label">Reeks</label>
-                <input type="text" name="series" class="form-control" id="series">
+                <label for="series_id" class="form-label">Reeks</label>
+                <input type="text" name="series_id" class="form-control" id="series_id">
             </div>
 
             <div class="form-group mb-3">
