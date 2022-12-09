@@ -12,7 +12,7 @@
 
 			<div class="form-group mb-3">
 				<label for="consoles" class="form-label">Consoles</label>
-				<select name="consoles[]" id="consoles" class="form-control select-2 w-100" multiple="multiple">
+				<select name="consoles[]" id="consoles" class="form-control select-2" multiple="multiple">
 				</select>
 			</div>
 
