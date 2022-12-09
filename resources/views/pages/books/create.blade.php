@@ -11,8 +11,9 @@
             </div>
 
             <div class="form-group mb-3">
-                <label for="series_id" class="form-label">Reeks</label>
-                <input type="text" name="series_id" class="form-control" id="series_id">
+                <label for="series" class="form-label">Reeks</label>
+                <select name="series" id="series" class="form-control select-2">
+                </select>
             </div>
 
             <div class="form-group mb-3">
@@ -24,4 +25,16 @@
 
         </form>
     </div>
+	<script type="module">
+		let oldInput = {!! json_encode(old('series') ?? []) !!};
+		$( document ).ready( function () {
+			$( ".select-2" ).select2( {
+				tags: true,
+				tokenSeparators: [ ',', ' ' ],
+				theme: 'bootstrap4',
+				data: {!! json_encode($tags) !!}
+			} )
+				.val( oldInput ).trigger( 'change' );
+		} );
+	</script>
 </x-app-layout>

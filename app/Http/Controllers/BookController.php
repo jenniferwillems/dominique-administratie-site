@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Models\Book;
 
@@ -28,7 +29,11 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('pages.books.create');
+        $tags = Tag::seriesTags(true);
+        
+        return view('pages.books.create', [
+            'tags' => $tags
+        ]);
     }
 
     /**
