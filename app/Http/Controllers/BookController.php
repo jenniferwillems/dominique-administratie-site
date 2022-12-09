@@ -45,9 +45,20 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $book = new Book();
-        $book->id = $request->id;
         $book->title = $request->title;
-        $book->series_id = $request->series_id;
+        
+        if ((int) $request->series){
+            $book->series_id = $request->series;
+        }
+        else {
+            $newTag = new Tag();
+            $newTag->name = $request->series;
+            $newTag->category_id = 1;
+            $newTag->save();
+            
+            $book->series_id = $newTag->id;
+        }
+        
         $book->code = $request->code;
         $book->save();
 
