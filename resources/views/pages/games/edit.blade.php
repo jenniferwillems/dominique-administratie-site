@@ -13,11 +13,7 @@
 
             <div class="form-group mb-3">
                 <label for="genre" class="form-label">Genre</label>
-                <select class="form-select" id="tag" name="tag">
-                    <option selected disabled>Selecteer een genre</option>
-                    @foreach($tags as $tag)
-                        <option value="{{$tag->id}}">{{$tag->name}}</option>
-                    @endforeach
+                <select name="consoles[]" id="consoles" class="form-control select-2 w-100" multiple="multiple">
                 </select>
             </div>
 
@@ -40,4 +36,21 @@
             </div>
         </form>
     </div>
+	<script type="module">
+		let gameTags = {!! json_encode(old('consoles') ?? $game->consoles ?? []) !!};
+
+		let formattedGameTags = gameTags.map( ( obj ) => {
+			return obj.id || obj;
+		} );
+
+		$( document ).ready( function () {
+			$( ".select-2" ).select2( {
+				tags: true,
+				tokenSeparators: [ ',', ' ' ],
+				theme: 'bootstrap4',
+				data: {!! json_encode($tags) !!}
+			} )
+				.val( formattedGameTags ).trigger( 'change' );
+		} );
+	</script>
 </x-app-layout>

@@ -77,8 +77,11 @@ class GameController extends Controller
     public function edit($id)
     {
         $game = Game::findOrFail($id);
+        $tags = Tag::consolesTags(true);
+        
         return view('pages.games.edit', [
-            'game' => $game
+            'game' => $game,
+            'tags' => $tags
         ]);
     }
 
@@ -92,13 +95,16 @@ class GameController extends Controller
     public function update(Request $request, $id)
     {
         $game = Game::findOrFail($id);
-        $game->name = $request->name;
-        $game->genre = $request->genre;
-
+        $game->title = $request->title;
         $game->save();
 
+        $tagsToSync = collect($request->consoles);
+
+        $game->consoles()->sync($tagsToSync);
+
         return redirect()
-            ->route('games.index');
+            ->route('games.index')
+            ->with('success', 'Game succesvol bewerkt');
     }
 
     /**
