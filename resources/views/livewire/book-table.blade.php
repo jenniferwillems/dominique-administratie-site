@@ -35,14 +35,7 @@
 							<i class="bi bi-pencil"></i>
 						</x-buttons.outline.dark>
 					</td>
-					<td>
-						<form method="POST" action="{{route('books.destroy', $book)}}">
-							@csrf
-							@method('delete')
-							<button class="btn btn-sm btn-outline-dark" type="submit"><i class="bi bi-trash3"></i></button>
-						</form>
-					</td>
-                        @endif
+                    @endif
 				</tr>
 			@endforeach
 		</tbody>
