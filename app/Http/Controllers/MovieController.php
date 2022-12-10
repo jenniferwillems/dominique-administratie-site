@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 
@@ -28,8 +29,10 @@ class MovieController extends Controller
      */
     public function create()
     {
+        $tags = Tag::genresTags(true);
+        
         return view('pages.movies.create', [
-
+            'tags' => $tags
         ]);
     }
 
@@ -42,10 +45,16 @@ class MovieController extends Controller
     public function store(Request $request)
     {
         $movie = new Movie();
-        $movie->id = $request->id;
-        $movie->name = $request->name;
-        $movie->genre = $request->genre;
+        $movie->title = $request->title;
         $movie->save();
+
+        $tagsToSync = collect($request->genres);
+
+        $movie->genres()->sync($tagsToSync);
+        
+        return redirect()
+            ->route('movies.index')
+            ->with('success', 'Film succesvol aangemaakt');
     }
 
     /**
