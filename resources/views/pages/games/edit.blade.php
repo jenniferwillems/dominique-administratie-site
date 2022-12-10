@@ -12,7 +12,7 @@
             </div>
 
             <div class="form-group mb-3">
-                <label for="genre" class="form-label">Genre</label>
+                <label for="consoles" class="form-label">Console(s)</label>
                 <select name="consoles[]" id="consoles" class="form-control select-2 w-100" multiple="multiple">
                 </select>
             </div>
