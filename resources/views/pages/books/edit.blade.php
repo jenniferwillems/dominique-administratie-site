@@ -13,7 +13,8 @@
 
             <div class="form-group mb-3">
                 <label for="series" class="form-label">Reeks</label>
-                <input type="text" name="series" class="form-control" id="series" value="{{$book->series}}">
+                <select name="series" id="series" class="form-control select-2">
+                </select>
             </div>
 
             <div class="form-group mb-3">
@@ -40,4 +41,17 @@
             </div>
         </form>
     </div>
+	<script type="module">
+		let bookTag = {!! json_encode(old('series') ?? $book->series ?? []) !!};
+
+		$( document ).ready( function () {
+			$( ".select-2" ).select2( {
+				tags: true,
+				tokenSeparators: [ ',', ' ' ],
+				theme: 'bootstrap4',
+				data: {!! json_encode($tags) !!}
+			} )
+				.val( bookTag.id ).trigger( 'change' );
+		} );
+	</script>
 </x-app-layout>

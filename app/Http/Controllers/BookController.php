@@ -63,7 +63,8 @@ class BookController extends Controller
         $book->save();
 
         return redirect()
-            ->route('books.index');
+            ->route('books.index')
+            ->with('success', 'Boek succesvol aangemaakt');
     }
 
     /**
@@ -86,8 +87,11 @@ class BookController extends Controller
     public function edit($id)
     {
         $book = Book::findOrFail($id);
+        $tags = Tag::seriesTags(true);
+        
         return view('pages.books.edit', [
-            'book' => $book
+            'book' => $book,
+            'tags' => $tags
         ]);
     }
 
@@ -102,13 +106,26 @@ class BookController extends Controller
     {
         $book = Book::findOrFail($id);
         $book->title = $request->title;
-        $book->series = $request->series;
+        
+        if ((int) $request->series){
+            $book->series_id = $request->series;
+        }
+        else {
+            $newTag = new Tag();
+            $newTag->name = $request->series;
+            $newTag->category_id = 1;
+            $newTag->save();
+
+            $book->series_id = $newTag->id;
+        }
+        
         $book->code = $request->code;
 
         $book->save();
 
         return redirect()
-            ->route('books.index');
+            ->route('books.index')
+            ->with('success', 'Boek succesvol bewerkt');
     }
 
     /**
