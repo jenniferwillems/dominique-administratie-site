@@ -48,7 +48,18 @@ class GameController extends Controller
         $game->title = $request->title;
         $game->save();
 
-        $tagsToSync = collect($request->consoles);
+        $tagsToSync = collect($request->consoles)->map(function($tag, $key) {
+            if ((int) $tag) {
+                return $tag;
+            }
+            else {
+                $newTag = Tag::create([
+                    'name' => $tag,
+                    'category_id' => 2,
+                ]);
+                return $newTag->id;
+            }
+        });
 
         $game->consoles()->sync($tagsToSync);
         
@@ -98,7 +109,18 @@ class GameController extends Controller
         $game->title = $request->title;
         $game->save();
 
-        $tagsToSync = collect($request->consoles);
+        $tagsToSync = collect($request->consoles)->map(function($tag, $key) {
+            if ((int) $tag) {
+                return $tag;
+            }
+            else {
+                $newTag = Tag::create([
+                    'name' => $tag,
+                    'category_id' => 2,
+                ]);
+                return $newTag->id;
+            }
+        });
 
         $game->consoles()->sync($tagsToSync);
 
