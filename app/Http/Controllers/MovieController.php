@@ -77,8 +77,11 @@ class MovieController extends Controller
     public function edit($id)
     {
         $movie = Movie::findOrFail($id);
+        $tags = Tag::genresTags(true);
+        
         return view('pages.movies.edit', [
-            'movie' => $movie
+            'movie' => $movie,
+            'tags' => $tags
         ]);
     }
 
