@@ -48,7 +48,18 @@ class MovieController extends Controller
         $movie->title = $request->title;
         $movie->save();
 
-        $tagsToSync = collect($request->genres);
+        $tagsToSync = collect($request->genres)->map(function($tag, $key) {
+            if ((int) $tag) {
+                return $tag;
+            }
+            else {
+                $newTag = Tag::create([
+                    'name' => $tag,
+                    'category_id' => 3,
+                ]);
+                return $newTag->id;
+            }
+        });
 
         $movie->genres()->sync($tagsToSync);
         
