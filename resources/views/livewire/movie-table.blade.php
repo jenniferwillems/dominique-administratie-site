@@ -27,7 +27,7 @@
 					<td>{{$movie->title}}</td>
 					<td>
 						@foreach($movie->genres as $genre)
-							{{$genre->name}}
+							<x-badge>{{$genre->name}}</x-badge>
 						@endforeach
 					</td>
 

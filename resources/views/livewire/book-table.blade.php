@@ -26,7 +26,9 @@
 				<tr>
 					<td>{{$book->id}}</td>
 					<td>{{$book->title}}</td>
-					<td>{{$book->series->name ?? ''}}</td>
+					<td>
+						<x-badge>{{$book->series->name ?? ''}}</x-badge>
+					</td>
 					<td>{{$book->code}}</td>
 
                     @if(Auth::user())

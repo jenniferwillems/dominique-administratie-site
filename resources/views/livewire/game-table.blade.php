@@ -27,7 +27,7 @@
 					<td>{{$game->title}}</td>
 					<td>
 						@foreach($game->consoles as $console)
-							{{$console->name}}
+							<x-badge>{{$console->name}}</x-badge>
 						@endforeach
 					</td>
 
