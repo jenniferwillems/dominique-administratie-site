@@ -11,6 +11,11 @@ class Tag extends Model
     
     protected $fillable = ['name', 'category_id'];
     
+    public function books()
+    {
+        return $this->hasMany(Book::class, 'series_id');
+    }
+    
     public function games()
     {
         return $this->belongsToMany(Game::class);
