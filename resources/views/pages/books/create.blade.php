@@ -30,7 +30,7 @@
 		$( document ).ready( function () {
 			$( ".select-2" ).select2( {
 				tags: true,
-				tokenSeparators: [ ',', ' ' ],
+				tokenSeparators: [ ','],
 				theme: 'bootstrap4',
 				data: {!! json_encode($tags) !!}
 			} )
