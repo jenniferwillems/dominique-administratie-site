@@ -9,6 +9,8 @@ class Tag extends Model
 {
     use HasFactory;
     
+    protected $fillable = ['name', 'category_id'];
+    
     public function games()
     {
         return $this->belongsToMany(Game::class);
