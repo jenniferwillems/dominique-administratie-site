@@ -95,13 +95,27 @@ class MovieController extends Controller
     public function update(Request $request, $id)
     {
         $movie = Movie::findOrFail($id);
-        $movie->name = $request->name;
-        $movie->genre = $request->genre;
-
+        $movie->title = $request->title;
         $movie->save();
 
+        $tagsToSync = collect($request->genres)->map(function($tag, $key) {
+            if ((int) $tag) {
+                return $tag;
+            }
+            else {
+                $newTag = Tag::create([
+                    'name' => $tag,
+                    'category_id' => 3,
+                ]);
+                return $newTag->id;
+            }
+        });
+
+        $movie->genres()->sync($tagsToSync);
+        
         return redirect()
-            ->route('movies.index');
+            ->route('movies.index')
+            ->with('success', 'Film succesvol bewerkt');
     }
 
     /**
