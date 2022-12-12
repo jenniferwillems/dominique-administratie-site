@@ -19,12 +19,6 @@ class GameTable extends Component
         $this->resetPage();
     }
 
-    public function updatedSelectedTag()
-    {
-        dd('updated');
-        $this->resetPage();
-    }
-
     public function addFilter($tag = null)
     {
         $this->selectedTag = $tag;
