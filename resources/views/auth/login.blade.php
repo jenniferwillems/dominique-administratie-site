@@ -16,7 +16,7 @@
 <style>
     body { background-image: url("img/dvd_shelf.png")}
 </style>
-<div class="container me-5">
+<div class="container me-5 overflow-hidden">
     <div>
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -43,20 +43,21 @@
             @csrf
 
             <!-- Logo -->
+                <div class="pl-16">
                     <img src="{{ asset('img/skeleton-dance.gif') }}" alt="Computer man" style="width:60px;height:60px;margin-bottom:20px;margin-top:20px;">
-
+                </div>
             <!-- Email Address -->
-                <div>
+                <div class="pl-16">
                     <x-input-label for="email" :value="__('Email')" />
-                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                    <x-text-input id="email" class="block mt-1 py-2 form-control w-64 " type="email" name="email" :value="old('email')" required autofocus />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
                 <!-- Password -->
-                <div class="mt-4">
+                <div class="mt-4 pl-16">
                     <x-input-label for="password" :value="__('Password')" />
 
-                    <x-text-input id="password" class="block mt-1 w-full"
+                    <x-text-input id="password" class="block mt-1 w-64 py-2 form-control"
                                   type="password"
                                   name="password"
                                   required autocomplete="current-password" />
@@ -65,14 +66,14 @@
                 </div>
 
                 <!-- Remember Me -->
-                <div class="block mt-4">
+                <div class="block mt-4 pl-16">
                     <label for="remember_me" class="inline-flex items-center">
                         <input id="remember_me" type="checkbox" class="" name="remember">
                         <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                     </label>
                 </div>
 
-                <div class="flex items-center justify-end mt-4">
+                <div class="flex items-center justify-center mt-4">
                     @if (Route::has('password.request'))
                         <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                             {{ __('Forgot your password?') }}
