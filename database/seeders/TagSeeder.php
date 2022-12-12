@@ -17,15 +17,31 @@ class TagSeeder extends Seeder
     {
         $tags = [
             [
-                'name' => 'Harry Potter',
+                'name' => 'World Of Darkness',
                 'category_id' => 1
             ],
             [
-                'name' => 'Star Wars',
+                'name' => 'Vampire The Masquerade',
                 'category_id' => 1
             ],
             [
-                'name' => 'Lord of the Rings',
+                'name' => 'Call Of Cthulhu',
+                'category_id' => 1
+            ],
+            [
+                'name' => 'Hunter The Reckoning',
+                'category_id' => 1
+            ],
+            [
+                'name' => 'Dark Ages',
+                'category_id' => 1
+            ],
+            [
+                'name' => 'Changeling The Dreaming',
+                'category_id' => 1
+            ],
+            [
+                'name' => 'Wraith The Oblivion',
                 'category_id' => 1
             ],
             [
@@ -37,27 +53,137 @@ class TagSeeder extends Seeder
                 'category_id' => 2
             ],
             [
+                'name'=> 'Nintendo Wii U',
+                'category_id'=> 2
+            ],
+            [
+                'name' => 'Nintendo Wii',
+                'category_id'=> 2
+            ],
+            [
+                'name'=> 'Nintendo Gamecube',
+                'category_id'=> 2
+            ],
+            [
+                'name'=> 'Nintendo Entertainment System',
+                'category_id'=> 2
+            ],
+
+            [
                 'name' => 'PlayStation 4',
+                'category_id' => 2
+            ],
+            [
+                'name' => 'PlayStation 3',
+                'category_id' => 2
+            ],
+            [
+                'name' => 'PlayStation 2',
+                'category_id' => 2
+            ],
+            [
+                'name' => 'PlayStation 1',
+                'category_id' => 2
+            ],
+            [
+                'name' => 'Xbox 360',
+                'category_id' => 2
+            ],
+            [
+                'name' => 'Xbox One',
+                'category_id' => 2
+            ],
+            [
+                'name' => 'Xbox Series X',
                 'category_id' => 2
             ],
             [
                 'name' => 'Xbox',
                 'category_id' => 2
             ],
+
             [
-                'name' => 'Actie',
+                'name' => 'Sega Mega drive',
+                'category_id' => 2
+            ],
+            [
+                'name' => 'Sega Genesis',
+                'category_id' => 2
+            ],
+            [
+                'name' => 'Action',
                 'category_id' => 3
             ],
             [
-                'name' => 'Avontuur',
+                'name' => 'Adventure',
                 'category_id' => 3
             ],
             [
                 'name' => 'Fantasy',
                 'category_id' => 3
             ],
+            [
+                'name' => 'Romance',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Horror',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Anime',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Manga',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Art house',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Comedy',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Drama',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Detective',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Crime',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'History',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Documentary',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Thriller',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Science Fiction',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Western',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Music',
+                'category_id' => 3
+            ],
         ];
-        
+
         foreach ($tags as $tag) {
             Tag::create($tag);
         }
