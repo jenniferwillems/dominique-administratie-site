@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tag;
+use App\Models\TagCategory;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -28,7 +29,11 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        $categories = TagCategory::allCategories(true);
+        
+        return view('pages.tags.create', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -39,7 +44,14 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tag = new Tag();
+        $tag->name = $request->name;
+        $tag->category_id = $request->category_id;
+        $tag->save();
+        
+        return redirect()
+            ->route('tags.index')
+            ->with('success', 'Tag succesvol aangemaakt');
     }
 
     /**
