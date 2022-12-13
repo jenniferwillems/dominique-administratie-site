@@ -16,7 +16,7 @@
 			</div>
 
 			@if(Auth::user())
-				<x-buttons.primary href="{{route('games.create')}}" class="flex-shrink-0">Nieuwe film
+				<x-buttons.primary href="{{route('movies.create')}}" class="flex-shrink-0">Nieuwe film
 				</x-buttons.primary>
 			@endauth
 		</div>
