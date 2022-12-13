@@ -24,7 +24,10 @@
                     </x-nav-link>
                     <x-nav-link :href="route('movies.index')" :active="request()->routeIs('movies.index')">
                         {{ __('Films') }}
-                    </x-nav-link>   
+                    </x-nav-link>
+                    <x-nav-link :href="route('tags.index')" :active="request()->routeIs('tags.index')">
+                        {{ __('Tags') }}
+                    </x-nav-link>
                 </div>
             </div>
 
