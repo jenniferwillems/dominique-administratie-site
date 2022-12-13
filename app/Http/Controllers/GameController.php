@@ -137,7 +137,11 @@ class GameController extends Controller
      */
     public function destroy($id)
     {
+        $game = Game::find($id);
+        
+        $game->consoles()->detach();
         Game::destroy($id);
+        
         return redirect()
             ->route('games.index');
     }
