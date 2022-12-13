@@ -73,7 +73,13 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tag = Tag::find($id);
+        $categories = TagCategory::allCategories(true);
+        
+        return view('pages.tags.edit', [
+            'tag' => $tag,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -85,7 +91,14 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tag = Tag::find($id);
+        $tag->name = $request->name;
+        $tag->category_id = $request->category_id;
+        $tag->save();
+        
+        return redirect()
+            ->route('tags.index')
+            ->with('success', 'Tag succesvol bewerkt');
     }
 
     /**
