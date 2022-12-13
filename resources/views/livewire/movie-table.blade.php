@@ -1,4 +1,4 @@
-<div class="pt-5">
+<div class="py-5">
 	<x-flash-message/>
 	<div class="d-flex justify-content-between align-items-center">
 		<h1>Films</h1>
