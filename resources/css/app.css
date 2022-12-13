@@ -9,3 +9,7 @@
 	overflow: hidden !important;
 	height: auto !important;
 }
+
+.cursor-pointer {
+	cursor: pointer;
+}

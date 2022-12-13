@@ -1,4 +1,4 @@
-<span {{ $attributes->class(['shadow-sm mx-1 bg-white text-gray-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded']) }}>
+<span {{ $attributes->class(['shadow-sm mx-1 bg-white text-gray-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded cursor-pointer']) }}>
 	{{$slot}}
 	
 	@if(isset($type) && $type == 'dismissible')
