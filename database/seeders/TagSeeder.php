@@ -16,6 +16,7 @@ class TagSeeder extends Seeder
     public function run()
     {
         $tags = [
+//            roll play books
             [
                 'name' => 'World Of Darkness',
                 'category_id' => 1
@@ -44,6 +45,7 @@ class TagSeeder extends Seeder
                 'name' => 'Wraith The Oblivion',
                 'category_id' => 1
             ],
+//            consoles
             [
                 'name' => 'PC',
                 'category_id' => 2
@@ -86,7 +88,7 @@ class TagSeeder extends Seeder
                 'category_id' => 2
             ],
             [
-                'name' => 'Xbox 360',
+                'name' => 'Xbox Series X',
                 'category_id' => 2
             ],
             [
@@ -94,14 +96,13 @@ class TagSeeder extends Seeder
                 'category_id' => 2
             ],
             [
-                'name' => 'Xbox Series X',
+                'name' => 'Xbox 360',
                 'category_id' => 2
             ],
             [
                 'name' => 'Xbox',
                 'category_id' => 2
             ],
-
             [
                 'name' => 'Sega Mega drive',
                 'category_id' => 2
@@ -110,6 +111,7 @@ class TagSeeder extends Seeder
                 'name' => 'Sega Genesis',
                 'category_id' => 2
             ],
+//            Movies
             [
                 'name' => 'Action',
                 'category_id' => 3
@@ -182,6 +184,23 @@ class TagSeeder extends Seeder
                 'name' => 'Music',
                 'category_id' => 3
             ],
+            [
+                'name' => 'Gore',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Psychological',
+                'category_id' => 3
+            ],
+            [
+                'name' => '18+',
+                'category_id' => 3
+            ],
+            [
+                'name' => 'Superhero',
+                'category_id' => 3
+            ],
+
         ];
 
         foreach ($tags as $tag) {
