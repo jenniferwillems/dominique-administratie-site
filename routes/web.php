@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('games', GameController::class);
     Route::resource('movies', MovieController::class);
     Route::resource('books', BookController::class);
+    Route::resource('tags', TagController::class);
 });
 
 Route::get('/books', [BookController::class, 'index'])->name('books.index');
