@@ -109,6 +109,10 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Tag::destroy($id);
+        
+        return redirect()
+            ->route('tags.index')
+            ->with('success', 'Tag succesvol verwijderd');
     }
 }

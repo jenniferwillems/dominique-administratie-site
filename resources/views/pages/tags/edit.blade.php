@@ -2,6 +2,7 @@
 	<div class="pt-5 w-25 mx-auto">
 		<h1>Tags</h1>
 		<h2>Tag bewerken</h2>
+		
 		<form method="post" action="{{route('tags.update', $tag)}}">
 			@csrf
 			@method('PUT')
@@ -17,8 +18,23 @@
 				</select>
 			</div>
 
-			<input type="submit" value="Save Tag" class="btn btn-primary">
+			<div class="d-flex p-2 bd-highlight">
+				<form action="POST" action=""{{route('tags.update', $tag)}}>
+					@csrf
+					@method('PUT')
+					<input type="submit" value="Save Movie" class="btn btn-primary">
+				</form>
 
+				<div class="mx-2">
+					<div class="buttons d-flex">
+						<form method="POST" action="{{route('tags.destroy', $tag)}}">
+							@csrf
+							@method('delete')
+							<input class="btn btn-danger" type="submit" value="Delete">
+						</form>
+					</div>
+				</div>
+			</div>
 		</form>
 	</div>
 	<script type="module">
