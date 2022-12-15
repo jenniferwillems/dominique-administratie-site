@@ -1,7 +1,8 @@
 <x-app-layout>
 	<div class="pt-5 w-25 mx-auto">
-		<h1>Tag</h1>
-		<h2>Voeg een tag toe</h2>
+		<h1>Tags</h1>
+		<h2>Tag bewerken</h2>
+		
 		<form method="post" action="{{route('tags.update', $tag)}}">
 			@csrf
 			@method('PUT')
@@ -12,13 +13,28 @@
 			</div>
 
 			<div class="form-group mb-3">
-				<label for="category_id" class="form-label">Reeks</label>
+				<label for="category_id" class="form-label">Tag categorie</label>
 				<select name="category_id" id="category_id" class="form-control select-2">
 				</select>
 			</div>
 
-			<input type="submit" value="Save Book" class="btn btn-primary">
+			<div class="d-flex p-2 bd-highlight">
+				<form action="POST" action=""{{route('tags.update', $tag)}}>
+					@csrf
+					@method('PUT')
+					<input type="submit" value="Save Movie" class="btn btn-primary">
+				</form>
 
+				<div class="mx-2">
+					<div class="buttons d-flex">
+						<form method="POST" action="{{route('tags.destroy', $tag)}}">
+							@csrf
+							@method('delete')
+							<input class="btn btn-danger" type="submit" value="Delete">
+						</form>
+					</div>
+				</div>
+			</div>
 		</form>
 	</div>
 	<script type="module">
